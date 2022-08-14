@@ -4,13 +4,13 @@
     {
         static void Main(string[] args)
         {
-            // Put the input test in the Inputs.txt file at the root of the project
             string[] lines;
             NavigationSystem ns;
             IMap map;
 
             try
             {
+                // Put the input test in the Inputs.txt file at the root of the project
                 lines = Program.ReadFromInputTxt("../../../Inputs.txt");
                 var mapSize = lines[0].Split(" ");
                 ns = new NavigationSystem();
