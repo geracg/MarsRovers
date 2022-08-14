@@ -12,6 +12,10 @@ namespace MarsRovers
 
         public Map(int w, int h)
         {
+            if (w < 1 || h < 1)
+            {
+                throw new Exception($"Invalid Map Size w:{w} h:{h}");
+            }
             this._size = new Size { W = h, H = h };
         }
 

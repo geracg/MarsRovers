@@ -5,10 +5,23 @@
         static void Main(string[] args)
         {
             // Put the input test in the Inputs.txt file at the root of the project
-            var lines = Program.ReadFromInputTxt("../../../Inputs.txt");
-            var mapSize = lines[0].Split(" ");
-            var ns = new NavigationSystem();
-            IMap map = new Map(int.Parse(mapSize[0]), int.Parse(mapSize[1]));
+            string[] lines;
+            NavigationSystem ns;
+            IMap map;
+
+            try
+            {
+                lines = Program.ReadFromInputTxt("../../../Inputs.txt");
+                var mapSize = lines[0].Split(" ");
+                ns = new NavigationSystem();
+                map = new Map(int.Parse(mapSize[0]), int.Parse(mapSize[1]));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failed to initialize - {e.Message}");
+                return;
+            }
+            
             var result = "";
 
             //we iterate in increments of 2 to take 2 lines each iteration, starting at second line,
